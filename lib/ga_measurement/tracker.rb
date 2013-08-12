@@ -28,6 +28,25 @@ module GaMeasurement
         return false
       end
     end
+
+    def page(page, title, hostname = '', cid = '555')
+      params = {
+        :v => GaMeasurement::Tracker::VERSION,
+        :tid => @tracking_id,
+        :cid => cid,
+        :t => "pageview",
+        :dh => hostname,
+        :dp => page,
+        :dt => title
+      }
+
+      begin
+        RestClient.get(GaMeasurement::Tracker::END_POINT, params: params, timeout: 4, open_timeout: 4)
+        return true
+      rescue  RestClient::Exception => rex
+        return false
+      end
+    end
   end
 end
 

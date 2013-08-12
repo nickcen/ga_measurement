@@ -1,6 +1,6 @@
 # GaMeasurement
 
-TODO: Write a gem description
+This is a ruby implementation of google-analytic's Measurement Protocol.
 
 ## Installation
 
@@ -18,7 +18,8 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+    GaMeasurement::Tracker.new('UA-test')
+    tracker.page('/home', 'homepage', 'mydemo.com')
 
 ## Contributing
 
